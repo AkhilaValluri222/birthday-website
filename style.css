@@ -1,0 +1,296 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* HERO SECTION */
+.hero {
+    height: 100vh;
+    background: #fdf6e3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    
+    font-family: 'Great Vibes', cursive;
+    font-size: 44px;
+    color: #b35c5c;
+
+}
+
+.subtitle {
+     color: #b35c5c;
+      font-size: 20px;
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    animation-delay: 2s;
+}
+
+.hearts {
+    margin: 15px;
+    font-size: 20px;
+}
+
+button {
+    
+    padding: 15px 12px;        /* BIGGER SIZE */
+    background: #ff6b6b;
+    border: none;
+    border-radius: 35px;       /* smoother look */
+    color: white;
+    font-size: 20px;           /* bigger text */
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 4s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+
+}
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* GALLERY */
+.gallery {
+    padding: 60px;
+    background: #fdf6e3;   /* SAME AS FIRST PAGE */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 500px;        /* SAME HEIGHT FOR ALL IMAGES */
+    object-fit: cover;   /* crops image nicely */
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.4s ease;
+    font-size: 18px;
+}
+
+.card:hover .overlay {
+    opacity: 1;
+}
+
+/* MESSAGE SECTION */
+.message {
+    background: #7b5fc0;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.message-box {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 550px;
+    text-align: center;
+}
+
+.small-hearts {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+/* HEART ANIMATION */
+.hearts span {
+    display: inline-block;
+    font-size: 22px;
+    margin: 0 5px;
+    animation: float 2.5s ease-in-out infinite,
+               pulse 1.5s ease-in-out infinite;
+}
+
+.hearts span:nth-child(1) { animation-delay: 0s; }
+.hearts span:nth-child(2) { animation-delay: 0.3s; }
+.hearts span:nth-child(3) { animation-delay: 0.6s; }
+.hearts span:nth-child(4) { animation-delay: 0.9s; }
+.hearts span:nth-child(5) { animation-delay: 1.2s; }
+
+@keyframes float {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+/* BACKGROUND FLOATING HEARTS */
+.bg-heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 20px;
+    opacity: 0.6;
+    animation: floatUp linear infinite;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}
+/* FINAL MESSAGE PAGE */
+.final-message {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6a5acd, #8a6cff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.final-card {
+    background: #d6c9f0;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.final-card h2 {
+    
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #ffffff;
+
+}
+
+.final-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #f5f5f5;
+    margin-bottom: 15px;
+}
+
+.final-card .highlight {
+    color: #ffe680;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.final-hearts {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+/* SMALL FLOATING HEARTS (SUBTLE) */
+.final-message .bg-heart {
+    opacity: 0.4;
+}
+/* ===============================
+   MOBILE RESPONSIVE DESIGN
+   =============================== */
+@media (max-width: 768px) {
+
+    /* HERO SECTION */
+    .hero h1 {
+        font-size: 42px;
+        padding: 0 10px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    button {
+        padding: 16px 40px;
+        font-size: 18px;
+    }
+
+    /* GALLERY SECTION */
+    .gallery {
+        padding: 30px 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .card img {
+        height: 220px;
+    }
+
+    /* FINAL MESSAGE SECTION */
+    .final-card {
+        padding: 25px;
+        max-width: 90%;
+    }
+
+    .final-card h2 {
+        font-size: 30px;
+    }
+
+    .final-card p {
+        font-size: 14px;
+    }
+
+    .final-hearts {
+        font-size: 18px;
+    }
+}
+
+/* EXTRA SMALL DEVICES */
+@media (max-width: 480px) {
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    button {
+        font-size: 17px;
+        padding: 15px 35px;
+    }
+}
+
